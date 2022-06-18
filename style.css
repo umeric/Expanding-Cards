@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex; /* What does this do again?*/
+    align-items: center; /*Moves the whole body to the center on the left*/
+    justify-content: center; /*Moves it to the center of the screen*/
+    height: 100vh;
+    overflow: hidden; /*What is this?*/
+    margin: 0%;
+}
+
+.container {
+    display: flex; /* container wrap all the panels, the flex box will turn it to a row and all the children in the div will turn to a row*/
+    width: 90vw;
+}
+.panel {
+    background-size: auto 100%; /* width of the container and Height of container*/
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in; /*when you put flex, they links it to the flex property and the .7 is the duration of the action that will take place to ease-in*/
+
+}
+.panel h2 {
+    font-size: 24px;
+    position: absolute; /*this works with relative, if you use absolute without relative, the object will pop out the container*/
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0; /*Will hide the h2 text in the panel*/
+
+}
+.panel.active {
+    flex: 5;
+}
+.panel.active h2 {
+    opacity: 1; /*If the panel is active, the text will show*/
+    transition: opacity 0.3s ease-in 0.4s /.4 /*seconds in delay*/
+    /*select opacity property above*/ /*seconds of action that will take place*/ ;
+}
+
+@media(max-width: 480px) { /* this sets, if the screen width is 480px, the action in the function will take place*/
+    .container {
+        width: 100vw;
+    }
+    .panel:nth-of-type(4),.panel:nth-of-type(5){
+        display: none;
+    }
+
+}
